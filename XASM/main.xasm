@@ -1,0 +1,33 @@
+
+func MyAdd {
+	param X          # 声明一些参数
+	param Y
+	
+	var Sum          # 声明局部变量
+	var Sum_2[3]     # 声明局部变量
+	
+	Mov Sum, X
+	Add Sum, Y
+	# Add Sum, 20
+	# Add Sum, 2.03
+	# Add Sum, 2.04
+	# Add Sum, 0xFFFF
+	Mov _ret_val, Sum
+}
+
+func main {
+
+	var Num
+	var Str
+	
+	Mov Num, 1
+    Mov Str, "ABCDE"
+	
+Start:
+
+	Mul Num, 2
+	Add Num, 2
+	JL Num, 0b1, Start
+
+	Call MyAdd
+}
